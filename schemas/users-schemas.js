@@ -8,6 +8,7 @@ const userSingupSchema = Joi.object({
   password: Joi.string().min(6).required().messages({
     "any.required": `missing required password or email field`,
   }),
+  avatarURL: Joi.string(),
   subscription: Joi.string(),
 });
 
