@@ -28,5 +28,3 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
-
-// sendGrid_API_Key=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
