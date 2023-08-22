@@ -8,7 +8,10 @@ const userSingupSchema = Joi.object({
   password: Joi.string().min(6).required().messages({
     "any.required": `missing required password or email field`,
   }),
+  avatarURL: Joi.string(),
   subscription: Joi.string(),
+  verify: Joi.boolean(),
+  verificationToken: Joi.string(),
 });
 
 const userLogInSchema = Joi.object({
@@ -20,7 +23,14 @@ const userLogInSchema = Joi.object({
   }),
 });
 
+const emailVerifySchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required().messages({
+    "any.required": `missing required field email`,
+  }),
+});
+
 export default {
   userSingupSchema,
   userLogInSchema,
+  emailVerifySchema,
 };

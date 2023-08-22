@@ -1,4 +1,7 @@
 // import contactsService from "../models/contacts.js";
+import fs from "fs/promises";
+import path from "path";
+
 import Contact from "../models/contacts-model.js";
 
 import { HttpError } from "../helpers/index.js";
@@ -27,7 +30,7 @@ const getById = async (req, res) => {
 
 const add = async (req, res) => {
   const { _id: owner } = req.user;
-  // console.log(req.user);
+
   const result = await Contact.create({ ...req.body, owner });
   res.status(201).json(result);
 };
