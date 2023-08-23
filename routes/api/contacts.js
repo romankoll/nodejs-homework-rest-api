@@ -22,7 +22,6 @@ contactsRouter.get("/:contactId", isValidId, ctrl.getById);
 
 contactsRouter.post(
   "/",
-
   isBodyEmpty,
   validateBody(contactsSchemas.addSchema),
   ctrl.add
